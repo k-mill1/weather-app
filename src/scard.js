@@ -19,7 +19,6 @@ function Scard(props) {
 
   return (
     <>
-     
         <Card>
           <Card.Body className = "scard">
             <Row>
@@ -41,8 +40,7 @@ function Scard(props) {
               </Col>
             </Row>
           </Card.Body>
-        </Card>
-     
+        </Card> 
     </>
   );
 }

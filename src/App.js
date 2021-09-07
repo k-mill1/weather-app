@@ -3,7 +3,6 @@ import Scard from './scard';
 import ScardFirst from './scardFirst';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import CardGroup from 'react-bootstrap/CardGroup';
@@ -31,16 +30,6 @@ function App() {
       })
   }
 
-  const buildCards = () => {
-    return weather.weather.slice(1, 7).map((current, i) => (
-      <Row key={i}>
-        <CardGroup>
-          <Scard dateString={current.dt} img={current.weather[0].icon} alt={current.weather[0].description} text={current.weather[0].description} 
-          max={current.temp.max} min={current.temp.min} wind={current.wind_speed} />
-        </CardGroup>
-      </Row>
-    ))
-  }
   const buildFirstCard = () => {
     return weather.weather.slice(0, 1).map((current, i) => (
       <Row key={i}>
@@ -52,12 +41,24 @@ function App() {
     ))
   }
 
+  const buildCards = () => {
+    return weather.weather.slice(1, 7).map((current, i) => (
+      <Row key={i}>
+        <CardGroup>
+          <Scard dateString={current.dt} img={current.weather[0].icon} alt={current.weather[0].description} text={current.weather[0].description} 
+          max={current.temp.max} min={current.temp.min} wind={current.wind_speed} />
+        </CardGroup>
+      </Row>
+    ))
+  }
+  
   useEffect(() => {
     fetchWeather()
   }, [])
   
   return (
     <>
+    <Row className="justify-content-center">
       <Card style={{maxWidth: '30rem'}}>
       <Card.Header>7-day weather forecast</Card.Header>
         <Card.Body>
@@ -65,6 +66,7 @@ function App() {
           {buildCards()}
         </Card.Body>
       </Card>
+    </Row>
     </>
   );
 }

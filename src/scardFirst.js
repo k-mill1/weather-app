@@ -21,14 +21,14 @@ function ScardFirst(props) {
     <>
      
         <Card>
-          <Card.Body className = "scard">
+          <Card.Body className = "scardFirst">
             <Row>
                 <Col className = "city-container ">
                     <div>
                         <Row className = "justify-content-center city">{"Sheffield, UK"}</Row>
                         <Row className="justify-content-center">{nameDay}{" "}{date}{" "}{month}</Row>
-                        <Row><Image className = "icon-size" src={image} alt={props.alt} /></Row>
-                        <Row className="justify-content-center">{props.text}</Row>
+                        <Row className="justify-content-center"><Image className = "icon-size" src={image} alt={props.alt} /></Row>
+                        <Row className="justify-content-center icon-text">{props.text}</Row>
                     </div>
                 </Col>
                 <Col>
@@ -51,7 +51,6 @@ function ScardFirst(props) {
             </Row>
           </Card.Body>
         </Card>
-     
     </>
   );
 }

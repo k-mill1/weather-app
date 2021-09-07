@@ -1,3 +1,9 @@
+.scardFirst {
+    background-color: rgb(86, 167, 192);
+    color:white;
+    padding-top: 50px
+}
+
 .scard {
     background-color: rgb(86, 167, 192);
     color:white;
@@ -6,7 +12,7 @@
 .card-header {
     background-color: rgb(86, 167, 192) !important;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
     color:white;   
 }
 
@@ -47,7 +53,12 @@
 }
 
 .city {
-    font-size: 25px;  
+    font-size: 25px;
+    padding-top: 15px 
+}
+
+.icon-text {
+    padding-bottom: 15px 
 }
 
 .large-temp {
@@ -66,4 +77,12 @@
 .row>* {
     padding-right:0px !important;
     padding-left:0px !important;
+}
+
+.icon-size {
+    width: 100px !important
+}
+
+.card-group>.card {
+     margin-bottom: 0px
 }
