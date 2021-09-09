@@ -19,8 +19,8 @@ function ScardFirst(props) {
     const currentTemp = Math.round(props.currentWeather)
     const currentTime = new Date(parseInt(props.currentTime) * 1000);
     const hour = currentTime.getHours() 
-    const minute = currentTime.getMinutes() 
-
+    const minute = ('0'+currentTime.getMinutes()).slice(-2) 
+    
     return (
     <>
         <Card>
