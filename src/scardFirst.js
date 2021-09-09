@@ -16,7 +16,7 @@ function ScardFirst(props) {
   const maxTemp = Math.round(props.max)
   const minTemp = Math.round(props.min)
   const windSpeed = Math.round(props.wind)
-
+  const currentTemp = Math.round(props.currentWeather)
   return (
     <>
      
@@ -33,7 +33,8 @@ function ScardFirst(props) {
                 </Col>
                 <Col>
                     <div>
-                        <Row className = "large-temp">{maxTemp}{"/"}{minTemp}{"°C"}</Row>
+                        <Row className = "large-temp">{currentTemp}{"°C"}</Row>
+                        <Row className = "max-min">{"H: "}{maxTemp}{"° "}{"L: "}{minTemp}{"°"}</Row>
                         <Row>
                             <Col xs = {5}>
                                 <Row>{"Wind "}</Row>
