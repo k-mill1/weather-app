@@ -91,3 +91,20 @@
 .card-group>.card {
      margin-bottom: 0px !important
 }
+
+.hourly-temp {
+    padding-top: 10px;
+    justify-content: center;  
+}
+
+.hourly-time {
+    padding-bottom: 15px;
+    justify-content: center;  
+}
+
+.white-line {
+    color: white;
+    height: 3px;  
+}
+
+
