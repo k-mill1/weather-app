@@ -16,7 +16,10 @@ function ScardFirst(props) {
     const maxTemp = Math.round(props.max)
     const minTemp = Math.round(props.min)
     const windSpeed = Math.round(props.wind)
-    const currentTemp = Math.round(props.currentWeather)  
+    const currentTemp = Math.round(props.currentWeather)
+    const currentTime = new Date(parseInt(props.currentTime) * 1000);
+    const hour = currentTime.getHours() 
+    const minute = currentTime.getMinutes() 
 
     return (
     <>
@@ -27,6 +30,7 @@ function ScardFirst(props) {
                     <div>
                         <Row className = "justify-content-center city">{"Sheffield, UK"}</Row>
                         <Row className="justify-content-center">{nameDay}{" "}{date}{" "}{month}</Row>
+                        <Row className="justify-content-center">{hour}{":"}{minute}</Row>
                         <Row className="justify-content-center"><Image className = "icon-size" src={image} alt={props.alt} /></Row>
                         <Row className="justify-content-center icon-text">{props.text}</Row>
                     </div>

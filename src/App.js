@@ -28,7 +28,7 @@ function App() {
     cHourlyWeather({weather : response})
   }
 
-  const destructureWeather = (obj, currentObj, hourlyObj) => {
+  const destructureWeather = (obj, currentObj) => {
     cDay({
       dateString: obj.dt,     
       img: obj.weather[0].icon, 
@@ -40,22 +40,24 @@ function App() {
       pressure: obj.pressure,
       humidity: obj.humidity,
       currentWeather: currentObj.temp,
+      currentTime: currentObj.dt,
     })
   }
-
+  
   const fetchWeather = () => {
     apiClient
       .getWeather()
       .then((res) => {
         updateDailyWeather(res.data.daily)
         updateHourlyWeather(res.data.hourly.slice(1,7))
-        destructureWeather(res.data.daily[0], res.data.current, res.data.hourly)
+        destructureWeather(res.data.daily[0], res.data.current)
       })
   }
-console.log(hourlyWeather)
+
   const buildHourlyWeather = () => {
     return hourlyWeather.weather.map((current,i) => (
-      <HourlyCard
+      <HourlyCard 
+      key={i}
       dateString={current.dt} 
       icon={current.weather[0].icon} 
       alt={current.weather[0].description} 
@@ -67,14 +69,14 @@ console.log(hourlyWeather)
     return dailyWeather.weather.slice(1, 7).map((current, i) => (
       <Row key={i}>
         <CardGroup>
-          <Scard 
+          <Scard
           dateString={current.dt} 
           img={current.weather[0].icon} 
           alt={current.weather[0].description} 
           text={current.weather[0].description} 
           max={current.temp.max} 
           min={current.temp.min}
-          wind={current.wind_speed} />
+          wind={current.wind_speed}/>
         </CardGroup>
       </Row>
     ))
@@ -83,7 +85,7 @@ console.log(hourlyWeather)
   useEffect(() => {
     fetchWeather()
   }, [])
-  
+
   return (
     <>
     <Row className="justify-content-center">
@@ -103,6 +105,7 @@ console.log(hourlyWeather)
                humidity={day.humidity}
                pressure={day.pressure}
                currentWeather ={day.currentWeather}
+               currentTime ={day.currentTime}
                buildHourlyWeather = {buildHourlyWeather()}
                />
             </CardGroup>
